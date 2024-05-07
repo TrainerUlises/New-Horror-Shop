@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" type="text/css" href="Products.css">
+</head>
+<body>
+    <header>
+        <h1>Products</h1>
+        <nav>
+            <ul>
+                <li><a href="Main Menu.html">Main Menu</a></li>
+                <li><a href="About_Us.html">About Us</a></li>
+                <li><a href="Contact_Us.html">Contact Us</a></li>
+                <li><a href="signout.html">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="aboutBackground">
+        <div id="aboutContent">
+            <div class="product">
+                <h2>Scream Costume</h2>
+                <img src="images/Scream_Costume.jpg" alt="Scream Costume" class="main-image">
+                <p>Price: $29.99</p>
+                <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="product_name" value="Scream Costume">
+                    <input type="hidden" name="product_price" value="29.99">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+            
+            <div class="product">
+                <h2>Horror Prop</h2>
+                <img src="images/Horror_Prop.jpg" alt="Horror Prop" class="main-image">
+                <p>Price: $19.99</p>
+                <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="product_name" value="Horror Prop">
+                    <input type="hidden" name="product_price" value="19.99">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+
+            <div class="product">
+                <h2>Horror Prop 2</h2>
+                <img src="images/Horror_Prop2.jpg" alt="Horror Prop 2" class="main-image">
+                <p>Price: $19.99</p>
+                <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="product_name" value="Horror Prop 2">
+                    <input type="hidden" name="product_price" value="24.99">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
+
+
+
+
+
