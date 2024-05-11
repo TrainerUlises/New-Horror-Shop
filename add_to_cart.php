@@ -33,7 +33,7 @@ $stmt->bind_param("iss", $user_id, $product_name, $product_price);
 if ($stmt->execute()) {
     // Item added to cart successfully
     // Redirect to cart page
-    header("Location: cart.php");
+    header("Location: Products.html");
     exit(); // Make sure no other output is sent
 } else {
     // Error occurred while adding item to cart

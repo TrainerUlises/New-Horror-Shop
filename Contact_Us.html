@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" type="text/css" href="About_Us.css">
+    <style>
+        /* Additional CSS for the form */
+        #contactForm {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 70%;
+        }
+        #contactForm input[type="text"], #contactForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #contactForm input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #contactForm input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,17 +49,35 @@
     <main>
         <section id="aboutBackground">
             <div id="aboutContent">
-                <h2></h2>
-                <p><center>Questions Or Concerns?</center></p>
-                <p><center>Input your message below!</center></p>
-            </div>
-        </section>
-        <section id="aboutBackground">
-            <div id="aboutContent">
-                <h2></h2>
-                <p></p>
+                <h2>Questions Or Concerns?</h2>
+                <p>Input your message below!</p>
+                <!-- Contact Form -->
+                <form id="contactForm" onsubmit="submitForm(); return false;">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" id="email" name="email" required><br>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="4" required></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </section>
     </main>
+
+    <script>
+        function submitForm() {
+            
+            var message = document.getElementById("message").value.trim().toLowerCase();
+            if (message === "fake message") {
+                
+                location.reload();
+            } else {
+                
+                document.getElementById("contactForm").submit();
+            }
+        }
+    </script>
 </body>
 </html>
+

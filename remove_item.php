@@ -8,25 +8,27 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+// Database connection details
+$servername = "localhost";
+$username = "root"; // Default username for MySQL in XAMPP
+$password = "";     // No password by default
+$database = "Project"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Assuming user_id is 4
+$user_id = 4;
+
 // Check if cart_id is provided via POST method
 if(isset($_POST['cart_id'])) {
-    // Database connection details
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "Project";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
     // Prepare and execute SQL statement to delete the item from the cart
     $cart_id = $_POST['cart_id'];
-    $user_id = $_SESSION['user_id'];
     $sql = "DELETE FROM cart WHERE cart_id = ? AND user_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $cart_id, $user_id);
@@ -48,3 +50,4 @@ if(isset($_POST['cart_id'])) {
     exit();
 }
 ?>
+

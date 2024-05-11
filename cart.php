@@ -1,3 +1,19 @@
+<?php
+$servername = "localhost";
+$username = "root"; // Default username for MySQL in XAMPP
+$password = "";     // No password by default
+$database = "Project"; //database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,25 +64,6 @@
     // Start session
     session_start();
 
-    $servername = "localhost";
-    $username = "root"; //
-    $password = "";     
-    $database = "Project"; 
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Check if user_id exists in session, if not redirect to login page
-    if (!isset($_SESSION['user_id'])) {
-        header("Location: login.php"); // Redirect to login page
-        exit();
-    }
-
     // Execute SQL statement to fetch cart items for user_id = 4
     $sql = "SELECT * FROM cart WHERE user_id = 4";
     $result = $conn->query($sql);
@@ -93,12 +90,12 @@
     $conn->close();
     ?>
 
-    <!-- Button to proceed to checkout -->
     <form action="checkout.php" method="post">
         <button type="submit">Proceed to Checkout</button>
     </form>
 </body>
 </html>
+
 
 
 
